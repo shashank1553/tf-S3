@@ -44,14 +44,14 @@ pipeline {
                     
                 }
             }
-        } 
+        } /*
         stage('Apply') {
             steps {
                 script {
                     sh "terraform apply -auto-approve tfplan"
                 }
             }
-        }
+        } */
         stage('Terraform Destroy') {
             when {
                 expression {
