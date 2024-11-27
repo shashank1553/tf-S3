@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         AWS_REGION = 'us-east-1' // Update with your AWS region
-        TF_WORKSPACE = 'default' // Update with your desired workspace
+        //TF_WORKSPACE = 'default' // Update with your desired workspace
         TF_VAR_BACKEND_BUCKET = 'terraform-state-27-11-2024' // Replace with your S3 bucket
         TF_VAR_BACKEND_DYNAMO_TABLE = 'dev-remote-statelock' // Replace with your DynamoDB table
     }
