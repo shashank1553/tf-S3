@@ -35,7 +35,7 @@ pipeline {
                     """
                 }
             }
-        }
+        }/*
         stage('Plan') {
             steps {
                 script {
@@ -43,7 +43,7 @@ pipeline {
                    sh "terraform plan -out=tfplan"
                     
                 }
-            }
+            }*/
         } /*
         stage('Apply') {
             steps {
