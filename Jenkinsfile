@@ -64,7 +64,7 @@ pipeline {
         stage('Terraform Destroy') {
             when {
                 expression {
-                    return true  // Set to 'true' if you want to destroy the resources after testing
+                    return false  // Set to 'true' if you want to destroy the resources after testing
                 }
             }
             steps {
@@ -80,6 +80,12 @@ pipeline {
         always {
             // Clean up any resources or files after the pipeline run
             echo 'Cleaning up...'
+        }
+         success {
+            echo 'Terraform execution successful'
+        }
+        failure {
+            echo 'Terraform execution failed'
         }
     }
 }
