@@ -51,6 +51,19 @@ pipeline {
                     sh "terraform apply -auto-approve tfplan"
                 }
             }
+        }
+        stage('Terraform Destroy') {
+            when {
+                expression {
+                    return false  // Set to 'true' if you want to destroy the resources after testing
+                }
+            }
+            steps {
+                script {
+                    // Destroy the resources managed by Terraform (if needed)
+                    sh 'terraform destroy -auto-approve'
+                }
+            }
         } 
     }
     post {
