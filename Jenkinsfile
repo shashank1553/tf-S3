@@ -39,10 +39,9 @@ pipeline {
         stage('Plan') {
             steps {
                 script {
-                    sh """
-                    terraform workspace select ${TF_WORKSPACE} || terraform workspace new ${TF_WORKSPACE}
-                    terraform plan -out=tfplan
-                    """
+                   // sh "terraform workspace select ${TF_WORKSPACE} || terraform workspace new ${TF_WORKSPACE}"
+                   sh "terraform plan -out=tfplan"
+                    
                 }
             }
         } 
