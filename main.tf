@@ -83,27 +83,27 @@ resource "aws_vpc_security_group_egress_rule" "outbound" {
   ip_protocol       = "-1"
 }
 
-# resource "aws_instance" "dev-ec2" {
-#   for_each      = aws_subnet.subnet
-#   subnet_id     = each.value.id
-#   ami           = "ami-012967cc5a8c9f891"
-#   instance_type = "t2.micro"
-#   key_name      = "new-login"
-#   tags = {
-#     Name      = "dev-ec2"
-#     Createdby = "terraform"
-#   }
-#   vpc_security_group_ids = [aws_security_group.sg.id]
-# }
-
-resource "aws_instance" "dev-ec2" {                     
-  for_each      = var.subnets                            #for each subnet each ec2
+resource "aws_instance" "dev-ec2" {
+  for_each      = aws_subnet.subnet
+  subnet_id     = each.value.id
   ami           = "ami-012967cc5a8c9f891"
   instance_type = "t2.micro"
   key_name      = "new-login"
   tags = {
-    Name      = each.value.name
+    Name      = "dev-ec2"
     Createdby = "terraform"
   }
   vpc_security_group_ids = [aws_security_group.sg.id]
 }
+
+# resource "aws_instance" "dev-ec2" {                     
+#   for_each      = var.subnets                            #for each subnet each ec2
+#   ami           = "ami-012967cc5a8c9f891"
+#   instance_type = "t2.micro"
+#   key_name      = "new-login"
+#   tags = {
+#     Name      = each.value.name
+#     Createdby = "terraform"
+#   }
+#   vpc_security_group_ids = [aws_security_group.sg.id]
+#}
