@@ -64,7 +64,7 @@ pipeline {
         stage('Terraform Destroy') {
             when {
                 expression {
-                    return false  // Set to 'true' if you want to destroy the resources after testing
+                    return true  // Set to 'true' if you want to destroy the resources after testing
                 }
             }
             steps {
