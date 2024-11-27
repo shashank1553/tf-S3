@@ -21,7 +21,7 @@ variable "subnets" {
     },
     "subnet-3" = {
       name              = "dev-subnet-3",
-      cidr              = "10.0.3.0/24",
+      cidr              = "10.0.4.0/24",
       availability_zone = "us-east-1c"
     }
   }
